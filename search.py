@@ -1,5 +1,6 @@
 import random
 import os
+import time
 from process_config import process_config
 
 no_of_configs = 1000
