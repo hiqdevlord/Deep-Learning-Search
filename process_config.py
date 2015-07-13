@@ -14,10 +14,12 @@ def printconfig(config):
 		(stride[config[5][0]], features[config[5][1]]) 
 		)
 
-def get_accuracy_from_log(filename): #TODO
-	pass
-def process_config(config,filename):
+def get_accuracy_from_log(filename):
+	output = subprocess.check_output(['tail','-n4',filename+'.log'])
+	output = output.split('\n')[0]
+	return float(output.split('accuracy = ')[1])
 
+def process_config(config,filename):
 	print("Processing config: "+printconfig(config))
 	print("Writing config to file:"+filename+'.prototxt')
 	write_config(config,filename+'.prototxt')

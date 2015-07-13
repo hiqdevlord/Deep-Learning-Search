@@ -1,7 +1,5 @@
 import subprocess
 
-a = (1,
-	2,
-	4,
-	5
-	)
+output = subprocess.check_output(['tail','-n4','test'])
+output = output.split('\n')[0]
+print float(output.split('accuracy = ')[1])
