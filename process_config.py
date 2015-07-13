@@ -16,19 +16,19 @@ def printconfig(config):
 	return str(ret_val)
 
 def get_accuracy_from_log(filename):
-	output = subprocess.check_output(['tail','-n4',filename+'.log'])
+	output = subprocess.check_output(['tail','-n4',filename])
 	output = output.split('\n')[0]
 	return float(output.split('accuracy = ')[1])
 
 def process_config(config,filename):
 	print("Processing config: "+printconfig(config))
-	print("Writing config to file:"+filename+'.prototxt')
+	print("Writing config to file: "+filename+'.prototxt')
 	write_config(config,filename+'.prototxt')
 	print("done")
 	print("Visualizing Config")
 	draw_net(filename+'.prototxt',filename+".png")
 	print("running config,using solver in solver.prototxt")
-	print("saving log to"+filename+".log")
+	print("saving log to "+filename+".log")
 	#TODO code to run the config 
 	accuracy = get_accuracy_from_log(filename+'.log') 
 	print ("gave accuracy: " + str(accuracy))
