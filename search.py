@@ -1,11 +1,4 @@
-'''
-TODO
-1. Create a logging module
-2. Create a output module
-'''
-
 import random
-import caffe
 import os
 from process_config import process_config
 
