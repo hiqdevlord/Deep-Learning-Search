@@ -37,8 +37,8 @@ if __name__ == '__main__':
 			new_config = get_new_config(seed_config)
 			if config_to_tuple(new_config) not in configs_computed:
 				break
-
-		new_accuracy = process_config(new_config,"iter_"+i)
+		os.makedirs("iter_"+str(i))		
+		new_accuracy = process_config(new_config,"iter_"+str(i)+"/iter_"+str(i))
 		configs_computed[config_to_tuple(new_config)] = new_accuracy
 
 		if new_accuracy >= best_accuracy:
