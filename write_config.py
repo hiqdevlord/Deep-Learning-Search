@@ -1,3 +1,7 @@
+#TODO: need to write the solver file too
+def write_solver(filename): #TODO
+  pass
+
 def write_config(config,filename):	
 	stride = [1,2,3]
 	features = [2**i for i in range(5,10)]
