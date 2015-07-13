@@ -13,7 +13,8 @@ def printconfig(config):
 		(stride[config[4][0]], features[config[4][1]]),
 		(stride[config[5][0]], features[config[5][1]]) 
 		)
-	return ret_val
+	return str(ret_val)
+
 def get_accuracy_from_log(filename):
 	output = subprocess.check_output(['tail','-n4',filename+'.log'])
 	output = output.split('\n')[0]
