@@ -1,5 +1,4 @@
-#TODO: need to write the solver file too
-def write_solver(filename): #TODO
+def write_solver(filename): 
   solver_file =  ''' net: "'''+filename+'.prototxt'+'''"
 test_iter: 100
 test_interval: 500
@@ -341,13 +340,13 @@ layer {
 	with open(filename,"w") as f:
 		f.write(config_file)
 
-  def write_config(config,filename):
-    print("Writing Net to file: "+filename+'.prototxt')
-    write_net(config,filename+'.prototxt')
-    print('done')
-    print("Writing solver to file: "+filename+'_solver.prototxt')
-    write_solver(filename)
-    print('done')
-    print('All files written!')
+def write_config(config,filename):
+  print("Writing Net to file: "+filename+'.prototxt')
+  write_net(config,filename+'.prototxt')
+  print('done')
+  print("Writing solver to file: "+filename+'_solver.prototxt')
+  write_solver(filename)
+  print('done')
+  print('All files written!')
   
   
