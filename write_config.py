@@ -1,8 +1,21 @@
 #TODO: need to write the solver file too
 def write_solver(filename): #TODO
-  pass
+  solver_file =  ''' net: "'''+filename+'.prototxt'+'''"
+test_iter: 100
+test_interval: 500
+base_lr: 0.001
+momentum: 0.9
+weight_decay: 0.004
+lr_policy: "fixed"
+display: 100
+max_iter: 5000
+snapshot: 5000
+snapshot_prefix: "'''+filename+'''"
+solver_mode: GPU'''
+  with open(filename,'w') as f:
+    f.write(solver_file)
 
-def write_config(config,filename):	
+def write_net(config,filename):	
 	stride = [1,2,3]
 	features = [2**i for i in range(5,10)]
 	config_file = '''
@@ -16,10 +29,10 @@ layer {
     phase: TRAIN
   }
   transform_param {
-    mean_file: "examples/cifar10/mean.binaryproto"
+    mean_file: "./mean.binaryproto"
   }
   data_param {
-    source: "examples/cifar10/cifar10_train_lmdb"
+    source: "./cifar10_train_lmdb"
     batch_size: 100
     backend: LMDB
   }
@@ -33,10 +46,10 @@ layer {
     phase: TEST
   }
   transform_param {
-    mean_file: "examples/cifar10/mean.binaryproto"
+    mean_file: "./mean.binaryproto"
   }
   data_param {
-    source: "examples/cifar10/cifar10_test_lmdb"
+    source: "./cifar10_test_lmdb"        
     batch_size: 100
     backend: LMDB
   }
@@ -327,3 +340,14 @@ layer {
 	'''
 	with open(filename,"w") as f:
 		f.write(config_file)
+
+  def write_config(config,filename):
+    print("Writing Net to file: "+filename+'.prototxt')
+    write_net(config,filename+'.prototxt')
+    print('done')
+    print("Writing solver to file: "+filename+'_solver.prototxt')
+    write_solver(filename)
+    print('done')
+    print('All files written!')
+  
+  

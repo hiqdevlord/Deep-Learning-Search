@@ -22,8 +22,8 @@ def get_accuracy_from_log(filename):
 
 def process_config(config,filename):
 	print("Processing config: "+printconfig(config))
-	print("Writing config to file: "+filename+'.prototxt')
-	write_config(config,filename+'.prototxt')
+	print("Writing required files")
+	write_config(config,filename)
 	print("done")
 	print("Visualizing Config")
 	draw_net(filename+'.prototxt',filename+".png")
