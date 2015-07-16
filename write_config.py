@@ -10,7 +10,7 @@ display: 100
 max_iter: 5000
 snapshot: 5000
 snapshot_prefix: "'''+filename+'''"
-solver_mode: GPU'''
+solver_mode: CPU''' #IMP
   with open(filename,'w') as f:
     f.write(solver_file)
 
