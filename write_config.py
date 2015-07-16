@@ -345,7 +345,7 @@ def write_config(config,filename):
   write_net(config,filename+'.prototxt')
   print('done')
   print("Writing solver to file: "+filename+'_solver.prototxt')
-  write_solver(filename)
+  write_solver(filename+'_solver.prototxt')
   print('done')
   print('All files written!')
   
