@@ -18,7 +18,7 @@ def write_net(config,filename):
 	stride = [1,2,3]
 	features = [2**i for i in range(5,10)]
 	config_file = '''
-name: '''+filename[:-9] +'''"
+name: "'''+filename[:-9] +'''"
 layer {
   name: "cifar"
   type: "Data"
