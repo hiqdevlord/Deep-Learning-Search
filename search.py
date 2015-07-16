@@ -29,7 +29,7 @@ def config_to_tuple(config):
 	return tuple(temp)
 
 if __name__ == '__main__':
-	print("starting search at"+str(start_time))
+	print("starting search at "+str(start_time))
 	best_accuracy = process_config.process_config(seed_config,"seed")
 	configs_computed[config_to_tuple(seed_config)] = best_accuracy
 
