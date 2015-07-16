@@ -29,7 +29,7 @@ def process_config(config,filename):
 	#draw_net(filename+'.prototxt',filename+".png")
 	print("running config,using solver in "+filename+"_solver.prototxt")
 	print("saving log to "+filename+".log")
-	subprocess.call(['./tools/caffe', 'train', '-solver='+filename+"_solver.prototxt", '>',filename+'.log', '2>&1']) 
+	subprocess.call(['''./tools/caffe train -solver='''+filename+"_solver.prototxt"+ '>'+filename+'.log 2>&1']) 
 	accuracy = get_accuracy_from_log(filename+'.log') 
 	print ("gave accuracy: " + str(accuracy))
 	return accuracy
