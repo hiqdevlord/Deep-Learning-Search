@@ -48,4 +48,4 @@ if __name__ == '__main__':
 			seed_config = new_config
 			print ("Found new solution at "+str(time.time() - start_time)+
 				" Iteration: "+str(i)+" Improvement Number: "+ str(no_of_improv_solns) +
-				" Config: " + process_config.printconfig(seed_config) + " Accuracy: " + best_accuracy )
+				" Config: " + process_config.printconfig(seed_config) + " Accuracy: " + str(best_accuracy) )
