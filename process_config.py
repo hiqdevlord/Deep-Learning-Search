@@ -29,7 +29,7 @@ def process_config(config,filename):
 	#draw_net(filename+'.prototxt',filename+".png")
 	print("running config,using solver in "+filename+"_solver.prototxt")
 	print("saving log to "+filename+".log")
-	subprocess.call(['touch',filename+'.log'])
+	#subprocess.call(['touch',filename+'.log'])
 	text = '''./tools/caffe train -solver='''+filename+"_solver.prototxt>"+filename+'.log'+" 2>&1"
 	print text
 	subprocess.call([text],shell=True) 
