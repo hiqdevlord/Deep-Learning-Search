@@ -11,7 +11,7 @@ max_iter: 5000
 snapshot: 5000
 snapshot_prefix: "'''+filename+'''"
 solver_mode: CPU''' #IMP
-  with open(filename+'_solver.prototxt','w') as f:
+  with open(filename,'w') as f:
     f.write(solver_file)
 
 def write_net(config,filename):	
@@ -345,7 +345,7 @@ def write_config(config,filename):
   write_net(config,filename+'.prototxt')
   print('done')
   print("Writing solver to file: "+filename+'_solver.prototxt')
-  write_solver(filename)
+  write_solver(filename+'_solver.prototxt')
   print('done')
   print('All files written!')
   
