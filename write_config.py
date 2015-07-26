@@ -1,5 +1,5 @@
 def write_solver(filename): 
-  solver_file =  ''' net: "'''+filename+'.prototxt'+'''"
+  solver_file =  ''' net: "'''+filename.split('_solver')[0]+'.prototxt'+'''"
 test_iter: 100
 test_interval: 500
 base_lr: 0.001
