@@ -3,6 +3,7 @@ import os
 import time
 import process_config
 import cPickle as pickle
+import traceback
 
 no_of_configs = 1000
 i = 0
@@ -60,7 +61,7 @@ if __name__ == '__main__':
 		configs_computed[config_to_tuple(seed_config)] = best_accuracy
 		print i
 		print no_of_configs
-		
+
 		while i < no_of_configs:
 			while True:
 				new_config = get_new_config(seed_config)
@@ -79,9 +80,10 @@ if __name__ == '__main__':
 					" Iteration: "+str(i)+" Improvement Number: "+ str(no_of_improv_solns) +
 					" Config: " + process_config.printconfig(seed_config) + " Accuracy: " + best_accuracy )
 	
-	except Exception as inst :
+	except :
 		print("exception caught,dumping computed results to files")
-		print(inst)
+		print('******************************	Stack Trace    ******************************')
+		traceback.print_exc()
 		pickle.dump(i,open('iters_so_far.save','wb'))
 		pickle.dump(configs_computed,open("configs_computed.save","wb"))
 		pickle.dump(seed_config,open("best_config.save",'wb'))
